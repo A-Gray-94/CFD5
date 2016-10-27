@@ -7,6 +7,8 @@ import java.util.*;
 import star.common.*;
 import star.base.neo.*;
 import star.vis.*;
+import star.base.report.*;
+
 
 public class data_export extends StarMacro {
 
@@ -18,6 +20,45 @@ public class data_export extends StarMacro {
 
     Simulation simulation_0 = 
       getActiveSimulation();
+
+    Units units_0 = 
+      simulation_0.getUnitsManager().getPreferredUnits(new IntVector(new int[] {0, 2, -2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}));
+
+    UserFieldFunction userFieldFunction_0 = 
+      ((UserFieldFunction) simulation_0.getFieldFunctionManager().getFunction("UserFieldFunction_4"));
+
+    userFieldFunction_0.setDefinition("pow(2*${TurbulentKineticEnergy}/pow(3,0.5),0.5)\n");
+
+    XYPlot xYPlot_0 = 
+      ((XYPlot) simulation_0.getPlotManager().getPlot("CP"));
+
+    YAxisType yAxisType_0 = 
+      ((YAxisType) xYPlot_0.getYAxes().getAxisType("Y Type 1"));
+
+    InternalDataSet internalDataSet_0 = 
+      ((InternalDataSet) yAxisType_0.getDataSetManager().getDataSet("Region: Body 1.upper"));
+
+    LineStyle lineStyle_0 = 
+      internalDataSet_0.getLineStyle();
+
+    lineStyle_0.setWidth(1);
+
+    SymbolStyle symbolStyle_0 = 
+      internalDataSet_0.getSymbolStyle();
+
+    symbolStyle_0.setSize(6);
+
+    yAxisType_0.getDataSetManager().writeCSVDataSet(internalDataSet_0, resolvePath("C:\\Users\\Ali\\Documents\\MEGA\\University\\5th Year\\CFD 5\\Assignment 1\\Simulation Files\\Data Export\\cp_upper.csv"), ",");
+
+    InternalDataSet internalDataSet_1 = 
+      ((InternalDataSet) yAxisType_0.getDataSetManager().getDataSet("Region: Body 1.chamfer"));
+
+    yAxisType_0.getDataSetManager().writeCSVDataSet(internalDataSet_1, resolvePath("C:\\Users\\Ali\\Documents\\MEGA\\University\\5th Year\\CFD 5\\Assignment 1\\Simulation Files\\Data Export\\cp_chamfer.csv"), ",");
+
+    InternalDataSet internalDataSet_2 = 
+      ((InternalDataSet) yAxisType_0.getDataSetManager().getDataSet("Region: Body 1.lower"));
+
+    yAxisType_0.getDataSetManager().writeCSVDataSet(internalDataSet_2, resolvePath("C:\\Users\\Ali\\Documents\\MEGA\\University\\5th Year\\CFD 5\\Assignment 1\\Simulation Files\\Data Export\\cp_lower.csv"), ",");
 
     XYPlot xYPlot_1 = 
       ((XYPlot) simulation_0.getPlotManager().getPlot("Post Attachment RMS Velocity"));
@@ -222,5 +263,20 @@ public class data_export extends StarMacro {
       ((InternalDataSet) yAxisType_8.getDataSetManager().getDataSet("Region: Body 1.upper"));
 
     yAxisType_8.getDataSetManager().writeCSVDataSet(internalDataSet_29, resolvePath("C:\\Users\\Ali\\Documents\\MEGA\\University\\5th Year\\CFD 5\\Assignment 1\\Simulation Files\\Data Export\\upper_y+.csv"), ",");
+
+    ReportMonitor reportMonitor_0 = 
+      ((ReportMonitor) simulation_0.getMonitorManager().getMonitor("CL Monitor"));
+
+    simulation_0.getMonitorManager().export(resolvePath("C:\\Users\\Ali\\Documents\\MEGA\\University\\5th Year\\CFD 5\\Assignment 1\\Simulation Files\\Data Export\\CL_hist.csv"), ",", new NeoObjectVector(new Object[] {reportMonitor_0}));
+
+    ReportMonitor reportMonitor_1 = 
+      ((ReportMonitor) simulation_0.getMonitorManager().getMonitor("CL_Pressure Monitor"));
+
+    simulation_0.getMonitorManager().export(resolvePath("C:\\Users\\Ali\\Documents\\MEGA\\University\\5th Year\\CFD 5\\Assignment 1\\Simulation Files\\Data Export\\CLP_hist.csv"), ",", new NeoObjectVector(new Object[] {reportMonitor_1}));
+
+    ReportMonitor reportMonitor_2 = 
+      ((ReportMonitor) simulation_0.getMonitorManager().getMonitor("CL_Shear Monitor"));
+
+    simulation_0.getMonitorManager().export(resolvePath("C:\\Users\\Ali\\Documents\\MEGA\\University\\5th Year\\CFD 5\\Assignment 1\\Simulation Files\\Data Export\\CLS_hist.csv"), ",", new NeoObjectVector(new Object[] {reportMonitor_2}));
   }
 }
