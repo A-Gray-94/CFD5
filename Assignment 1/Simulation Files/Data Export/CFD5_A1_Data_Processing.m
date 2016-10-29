@@ -24,8 +24,9 @@ for model = 1:length(models)
         end
         % find reattachment point
         upper_cf = data{28};
-        fun = @(x) interp1(upper_cf(:,1), upper_cf(:,2), x,'spline');
-        data{length(data)+1} = fminbnd(fun,0,1)
+        fun = @(x) interp1(upper_cf(:,1), upper_cf(:,2), x,'pchip');
+        data{length(data)+1} = fminbnd(fun,0,1);
+        disp([filename, 'Reattaches at ', num2str(data{length(data)})])
         % Store CL, CLP and CLS
         CL_hists = [data{31}, data{32}, data{33}];
         data{length(data)+1} = CL_hists(end, 2); %CL

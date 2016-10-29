@@ -13,7 +13,7 @@ xlims = {[-0.5, 1.5], [0, 7], [0, 70]};
 ylims = {[0, 0.2], [0, 0.2], [0, 0.2]};
 for model = 1:length(models)
     for durb = 1:length(durbin)
-        filename = [models{model}, '_', durbin{durb}, '_med_grid_processed'];
+        filename = [models{model}, '_', durbin{durb}, '_fine_grid_processed'];
         clearvars data
         load(filename)
         leg{(model-1)*length(durbin)+durb} = [leg_model{model}, durbin_leg{durb}];
@@ -45,7 +45,7 @@ for x = 1:length(loc)
         legend(leg, 'Location', 'Best')
         title(['$\frac{x}{C} = $', num2str(loc(x))],'Interpreter','latex', 'FontSize', 18)
         savefig(['Plot Images\', num2str(loc(x)), '_xc_', funcs{f}, '.fig'])
-        print(['Plot Images\', num2str(loc(x)), '_xc_', funcs{f}], '-dpng')
+        print(['Plot Images\', num2str(loc(x)), '_xc_', funcs{f}, '.png'], '-dpng')
     end
 end
 
@@ -69,7 +69,7 @@ xlabel('$\frac{x}{C} $','Interpreter','latex', 'FontSize', 18)
 ylabel('$C_P$','Interpreter','latex', 'FontSize', 18,'rot',0)
 legend(leg, 'Location', 'Best')
 savefig('Plot Images\CP.fig')
-print('Plot Images\CP', '-dpng')
+print('Plot Images\CP.png', '-dpng')
 
 figure(length(loc)*length(funcs)+2), plot(0.47, 0, '*')
 axis([0,1,0,0.01])
@@ -77,4 +77,4 @@ xlabel('$\frac{x}{C} $','Interpreter','latex', 'FontSize', 18)
 ylabel('$C_f$','Interpreter','latex', 'FontSize', 18,'rot',0)
 legend(leg, 'Location', 'Best')
 savefig('Plot Images\CF.fig')
-print('Plot Images\CF', '-dpng')
+print('Plot Images\CF.png', '-dpng')
