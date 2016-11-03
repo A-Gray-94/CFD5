@@ -43,12 +43,12 @@ public class settings2 extends StarMacro {
     InternalDataSet internalDataSet_1 = 
       ((InternalDataSet) yAxisType_0.getDataSetManager().getDataSet("Region: Body 1.chamfer"));
 
-    yAxisType_0.getDataSetManager().writeCSVDataSet(internalDataSet_1, resolvePath("C:\\Users\\Ali\\Documents\\MEGA\\University\\5th Year\\CFD 5\\Assignment 1\\Simulation Files\\Data Export\\cp_lower.csv"), ",");
+    yAxisType_0.getDataSetManager().writeCSVDataSet(internalDataSet_1, resolvePath("C:\\Users\\Ali\\Documents\\MEGA\\University\\5th Year\\CFD 5\\Assignment 1\\Simulation Files\\Data Export\\cp_chamfer.csv"), ",");
 
     InternalDataSet internalDataSet_2 = 
       ((InternalDataSet) yAxisType_0.getDataSetManager().getDataSet("Region: Body 1.lower"));
 
-    yAxisType_0.getDataSetManager().writeCSVDataSet(internalDataSet_2, resolvePath("C:\\Users\\Ali\\Documents\\MEGA\\University\\5th Year\\CFD 5\\Assignment 1\\Simulation Files\\Data Export\\cp_loower.csv"), ",");
+    yAxisType_0.getDataSetManager().writeCSVDataSet(internalDataSet_2, resolvePath("C:\\Users\\Ali\\Documents\\MEGA\\University\\5th Year\\CFD 5\\Assignment 1\\Simulation Files\\Data Export\\cp_lower.csv"), ",");
 
     Units units_0 = 
       simulation_0.getUnitsManager().getPreferredUnits(new IntVector(new int[] {0, 2, -2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}));
