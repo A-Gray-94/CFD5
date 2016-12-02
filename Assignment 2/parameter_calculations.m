@@ -23,18 +23,28 @@ f = 1/T;
 omega = 2*pi/T; % Wave frequency
 q = 2*pi/lambda; % Wave number
 %% Plots
-x = linspace(-5*c, 5*c, 200);
-z = linspace(-4*c, 0 , 200);
-t = linspace(0, 10*T, 100);
-[X,Z] = meshgrid(x,z);
+% x = linspace(-5*c, 5*c, 200);
+% z = linspace(-4*c, 0 , 200);
+% t = linspace(0, 10*T, 100);
+% [X,Z] = meshgrid(x,z);
+% 
+% V = zeros(length(x), length(z), length(t));
+% 
+% for i = 1:length(t)
+%     V(:,:,i) = -(H*omega/2)*exp(q*Z).*cos(q*X - omega*t(i));
+%     eta(:,i) = H/2*sin(q*x - omega*t(i));
+%     subplot(2,1,2), contourf(X,Z,V(:,:,i)),colorbar('southoutside'), hold on
+%     subplot(2,1,2), plot([0, c*cos(deg2rad(aoa))], [apex_depth, apex_depth-c*sin(deg2rad(aoa))], 'k-', 'LineWidth', 2), hold off
+%     subplot(2,1,1), plot(x,eta(:,i)), axis([min(x), max(x), min(min(eta)), max(max(eta))]);
+%     pause(0.001)
+% end
 
-V = zeros(length(x), length(z), length(t));
+%% Simulation Values
+% Figure out some rough domain sizes and the timestep
 
-for i = 1:length(t)
-    V(:,:,i) = -(H*omega/2)*exp(q*Z).*cos(q*X - omega*t(i));
-    eta(:,i) = H/2*sin(q*x - omega*t(i));
-    subplot(2,1,2), contourf(X,Z,V(:,:,i)),colorbar('southoutside'), hold on
-    subplot(2,1,2), plot([0, c*cos(deg2rad(aoa))], [apex_depth, apex_depth-c*sin(deg2rad(aoa))], 'k-', 'LineWidth', 2), hold off
-    subplot(2,1,1), plot(x,eta(:,i)), axis([min(x), max(x), min(min(eta)), max(max(eta))]);
-    pause(0.001)
-end
+x_dom = (4 + 15)*c;
+y_dom = apex_depth+5*c;
+strouhal = 10;
+f_vortex = strouhal*U/c;
+T_vortex = 1/f_vortex;
+t_step = T/20;
