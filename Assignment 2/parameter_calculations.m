@@ -22,6 +22,14 @@ T = lambda/C;
 f = 1/T;
 omega = 2*pi/T; % Wave frequency
 q = 2*pi/lambda; % Wave number
+span = c*sin(deg2rad(90-sweep)); % Base span
+Area = 1/2*c*span; % Wing planform area
+AR = span^2/Area; % Wing Aspect ratio
+kv = csvread('images\Kv.csv',1,0);
+kp = csvread('images\Kp.csv',1,0);
+KV = interp1(kv(:,1), kv(:,2), AR);
+KP = interp1(kp(:,1), kp(:,2), AR);
+CL = KP*sin(deg2rad(aoa))*cos(deg2rad(aoa))^2+KV*cos(deg2rad(aoa))*sin(deg2rad(aoa))^2;
 %% Plots
 % x = linspace(-5*c, 5*c, 200);
 % z = linspace(-4*c, 0 , 200);
