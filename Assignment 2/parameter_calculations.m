@@ -41,10 +41,18 @@ q = 2*pi/lambda; % Wave number
 
 %% Simulation Values
 % Figure out some rough domain sizes and the timestep
-
+leg = {};
+i = 10:5:50;
+for n = 1:length(i)
+    x = linspace(0,2*pi,i(n));
+    leg{n} = num2str(i(n));
+    plot(x, sin(x), '*-'), hold on
+    legend(leg)
+end
 x_dom = (4 + 15)*c;
-y_dom = apex_depth+5*c;
+y_dom = -apex_depth+5*c; 
 strouhal = 10;
 f_vortex = strouhal*U/c;
 T_vortex = 1/f_vortex;
 t_step = T/20;
+t_ratio = t_step/T_vortex;
