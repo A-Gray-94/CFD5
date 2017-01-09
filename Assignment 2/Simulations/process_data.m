@@ -1,0 +1,5 @@
+CFD_A2_data_processing('MM')
+CFD_A2_data_processing('CM')
+CFD_A2_data_processing('FM')
+CFD_A2_data_processing('CT')
+CFD_A2_data_processing('FT')

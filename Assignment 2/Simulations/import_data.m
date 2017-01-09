@@ -1,0 +1,5 @@
+CFD_A2_data_import('MM', 0.04, 5)
+CFD_A2_data_import('CM', 0.04, 8)
+CFD_A2_data_import('FM', 0.04, 16.1)
+CFD_A2_data_import('CT', 0.08, 5)
+CFD_A2_data_import('FT', 0.02, 8)
