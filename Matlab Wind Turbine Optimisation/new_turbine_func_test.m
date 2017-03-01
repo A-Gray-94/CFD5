@@ -6,7 +6,7 @@ Pdes = input('Enter desired power in watts: ');
 B = 3;
 %U = 25/2.25;
 U = input('Enter design wind speed in m/s: ');
-R = 1.2*sqrt(Pdes/(0.5*0.59*pi*1000*U^3));
+R = 1.2*sqrt(Pdes/(0.5*0.59*pi*rho*U^3));
 X = 6;
 omega =X*U/R;
 %design_points = 20;
@@ -22,7 +22,7 @@ xinit = [omega, R, C, theta];
 lb = [0, 0, zeros(size(C)), -pi/2*ones(size(C))];
 ub = [inf, inf, inf*ones(size(C)), pi/2*ones(size(C))];
 options = optimoptions(@fmincon,'Algorithm','sqp', 'PlotFcn', @optimplotfval,...
-    'FiniteDifferenceStepSize', 0.001, 'FiniteDifferenceType','central',...
+    'FiniteDifferenceStepSize', 0.005, 'FiniteDifferenceType','central',...
     'StepTolerance', 1e-12, 'TypicalX', xinit, 'Display', 'iter-detailed', 'UseParallel', true,...
      'MaxFunctionEvaluations', 100000);
 
