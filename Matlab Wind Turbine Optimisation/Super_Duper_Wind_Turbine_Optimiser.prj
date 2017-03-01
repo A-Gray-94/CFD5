@@ -1,0 +1,121 @@
+<deployment-project plugin="plugin.ezdeploy" plugin-version="1.0">
+  <configuration file="C:\Users\Ali\Documents\MEGA\University\5th_Year\CFD 5\Matlab Wind Turbine Optimisation\Super_Duper_Wind_Turbine_Optimiser.prj" location="C:\Users\Ali\Documents\MEGA\University\5th_Year\CFD 5\Matlab Wind Turbine Optimisation" name="Super_Duper_Wind_Turbine_Optimiser" target="target.ezdeploy.standalone" target-name="Application Compiler">
+    <param.appname>Super_Duper_Wind_Turbine_Optimiser</param.appname>
+    <param.icon />
+    <param.icons />
+    <param.version>1.0</param.version>
+    <param.authnamewatermark>Alasdair Christison Gray</param.authnamewatermark>
+    <param.email>A-CGray@outlook.com</param.email>
+    <param.company>University of Edinburgh</param.company>
+    <param.summary />
+    <param.description />
+    <param.screenshot />
+    <param.guid />
+    <param.installpath.string>\new_turbine_func_test\</param.installpath.string>
+    <param.installpath.combo>option.installpath.programfiles</param.installpath.combo>
+    <param.logo />
+    <param.install.notes />
+    <param.target.install.notes />
+    <param.intermediate>${PROJECT_ROOT}\Super_Duper_Wind_Turbine_Optimiser\for_testing</param.intermediate>
+    <param.files.only>${PROJECT_ROOT}\Super_Duper_Wind_Turbine_Optimiser\for_redistribution_files_only</param.files.only>
+    <param.output>${PROJECT_ROOT}\Super_Duper_Wind_Turbine_Optimiser\for_redistribution</param.output>
+    <param.logdir>${PROJECT_ROOT}\Super_Duper_Wind_Turbine_Optimiser</param.logdir>
+    <param.enable.clean.build>false</param.enable.clean.build>
+    <param.user.defined.mcr.options />
+    <param.embed.ctf>true</param.embed.ctf>
+    <param.target.type>subtarget.standalone</param.target.type>
+    <param.support.packages />
+    <param.web.mcr>true</param.web.mcr>
+    <param.package.mcr>false</param.package.mcr>
+    <param.no.mcr>false</param.no.mcr>
+    <param.web.mcr.name>MyAppInstaller_web</param.web.mcr.name>
+    <param.package.mcr.name>MyAppInstaller_mcr</param.package.mcr.name>
+    <param.no.mcr.name>MyAppInstaller_app</param.no.mcr.name>
+    <param.windows.command.prompt>false</param.windows.command.prompt>
+    <param.create.log>true</param.create.log>
+    <param.log.file>opt_turb_log</param.log.file>
+    <unset>
+      <param.icon />
+      <param.icons />
+      <param.version />
+      <param.summary />
+      <param.description />
+      <param.screenshot />
+      <param.guid />
+      <param.installpath.combo />
+      <param.logo />
+      <param.target.install.notes />
+      <param.intermediate />
+      <param.files.only />
+      <param.output />
+      <param.logdir />
+      <param.enable.clean.build />
+      <param.user.defined.mcr.options />
+      <param.embed.ctf />
+      <param.target.type />
+      <param.support.packages />
+      <param.web.mcr />
+      <param.package.mcr />
+      <param.no.mcr />
+      <param.web.mcr.name />
+      <param.package.mcr.name />
+      <param.no.mcr.name />
+    </unset>
+    <fileset.main>
+      <file>${PROJECT_ROOT}\new_turbine_func_test.m</file>
+    </fileset.main>
+    <fileset.resources>
+      <file>${PROJECT_ROOT}\aero_coeffs.m</file>
+      <file>${PROJECT_ROOT}\Airfoil Data</file>
+      <file>${PROJECT_ROOT}\flow_angles.m</file>
+      <file>${PROJECT_ROOT}\new_a.m</file>
+      <file>${PROJECT_ROOT}\wind_turb_power.m</file>
+    </fileset.resources>
+    <fileset.package />
+    <fileset.depfun />
+    <build-deliverables>
+      <file location="${PROJECT_ROOT}\Super_Duper_Wind_Turbine_Optimiser\for_testing" name="splash.png" optional="false">C:\Users\Ali\Documents\MEGA\University\5th_Year\CFD 5\Matlab Wind Turbine Optimisation\Super_Duper_Wind_Turbine_Optimiser\for_testing\splash.png</file>
+      <file location="${PROJECT_ROOT}\Super_Duper_Wind_Turbine_Optimiser\for_testing" name="Super_Duper_Wind_Turbine_Optimiser.exe" optional="false">C:\Users\Ali\Documents\MEGA\University\5th_Year\CFD 5\Matlab Wind Turbine Optimisation\Super_Duper_Wind_Turbine_Optimiser\for_testing\Super_Duper_Wind_Turbine_Optimiser.exe</file>
+      <file location="${PROJECT_ROOT}\Super_Duper_Wind_Turbine_Optimiser\for_testing" name="readme.txt" optional="true">C:\Users\Ali\Documents\MEGA\University\5th_Year\CFD 5\Matlab Wind Turbine Optimisation\Super_Duper_Wind_Turbine_Optimiser\for_testing\readme.txt</file>
+    </build-deliverables>
+    <workflow />
+    <matlab>
+      <root>C:\Program Files\MATLAB\R2016b</root>
+      <toolboxes>
+        <toolbox name="fixedpoint" />
+        <toolbox name="matlabcoder" />
+        <toolbox name="matlabhdlcoder" />
+      </toolboxes>
+      <toolbox>
+        <fixedpoint>
+          <enabled>true</enabled>
+        </fixedpoint>
+      </toolbox>
+      <toolbox>
+        <matlabcoder>
+          <enabled>true</enabled>
+        </matlabcoder>
+      </toolbox>
+      <toolbox>
+        <matlabhdlcoder>
+          <enabled>true</enabled>
+        </matlabhdlcoder>
+      </toolbox>
+    </matlab>
+    <platform>
+      <unix>false</unix>
+      <mac>false</mac>
+      <windows>true</windows>
+      <win2k>false</win2k>
+      <winxp>false</winxp>
+      <vista>false</vista>
+      <linux>false</linux>
+      <solaris>false</solaris>
+      <osver>6.2</osver>
+      <os32>false</os32>
+      <os64>true</os64>
+      <arch>win64</arch>
+      <matlab>true</matlab>
+    </platform>
+  </configuration>
+</deployment-project>

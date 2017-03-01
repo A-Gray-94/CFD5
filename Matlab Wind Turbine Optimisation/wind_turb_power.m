@@ -1,6 +1,5 @@
-function [c, ceq] = wind_turb_power(omega, B, U, R, C, theta, Pdes)
-load 'Airfoil Data/s833.mat'
-rho = 1.12;
+function [c, ceq] = wind_turb_power(omega, B, U, R, C, theta, Pdes, data, rho, nu)
+rho = 1000;
 nu = 1.5*10^-6;
 r = linspace(0.1*R, 0.99*R, length(C));
 sigma = cos(theta).*C*B./(2*pi*r);
@@ -62,5 +61,5 @@ ylabel(hAx(1),'Chord Length (m)');  ylabel(hAx(2),'Twist angle (deg)');
 subplot(2,2,2), plot(r,rad2deg(aoa),r,rad2deg(phi)), xlabel('Radius(m)'), ylabel('\alpha, \phi (deg)')
 subplot(2,2,3), plot(r,Ft), xlabel('Radius(m)'), ylabel('Tangential Force (N/m)')
 subplot(2,2,4), plot(r,a,r,a2), xlabel('Radius(m)'), ylabel('Induction Factor ')
-legend('Axial', 'Tangential')
+%legend('Axial', 'Tangential')
 drawnow

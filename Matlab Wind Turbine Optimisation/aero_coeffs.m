@@ -13,7 +13,7 @@ for n = 1:length(aoa)
         cd(n) = 1;
     else     
         Re1 = find(data{2}<re(n),1,'last');
-        weight = 1-(re(n) - data{2}(Re1))/(data{2}(Re1+1)-data{2}(Re1))
+        weight = 1-(re(n) - data{2}(Re1))/(data{2}(Re1+1)-data{2}(Re1));
         cl(n) = weight*interp1(data{1}(Re1,:), data{3}(Re1,:), rad2deg(aoa(n))) + (1-weight)*interp1(data{1}(Re1+1,:), data{3}(Re1+1,:), rad2deg(aoa(n)));
         cd(n) = weight*interp1(data{1}(Re1,:), data{4}(Re1,:), rad2deg(aoa(n))) + (1-weight)*interp1(data{1}(Re1+1,:), data{4}(Re1+1,:), rad2deg(aoa(n)));
 end
